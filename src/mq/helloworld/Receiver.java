@@ -14,10 +14,10 @@ public class Receiver {
 
 	public static void main(String[] args) throws JMSException {
 
-		
+		//重置用户名密码:添加的安全机制,(activemq.xml配置文件中)
 		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(
-				ActiveMQConnectionFactory.DEFAULT_USER,	ActiveMQConnectionFactory.DEFAULT_PASSWORD,"tcp://localhost:61616");
-		
+//				ActiveMQConnectionFactory.DEFAULT_USER,	ActiveMQConnectionFactory.DEFAULT_PASSWORD,"tcp://localhost:61616");
+		"lfx","lfx","tcp://localhost:61616"); 
 		Connection connection =  connectionFactory.createConnection();
 		connection.start();
 		
@@ -29,13 +29,8 @@ public class Receiver {
 		
 		while(true){
 			TextMessage msg = (TextMessage)consumer.receive();
-			
 			System.out.println("消费数据:"+msg.getText());
-			
-			
 		}
 		
-		
 	}
-
 }
