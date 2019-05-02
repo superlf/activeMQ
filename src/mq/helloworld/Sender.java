@@ -62,7 +62,7 @@ public class Sender {
 			//第二个参数：具体的数据信息
 			//第三个参数：传送数据的模式
 			//第四个参数：优先级
-			//第五个参数：消息过期时间
+			//第五个参数：消息过期时间,过期数据会放到 "死信队列"
 			producer.send(destination,msg);
 			TimeUnit.SECONDS.sleep(1);
 			
